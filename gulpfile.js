@@ -11,6 +11,9 @@ gulp.task('watch', function () {
 
 gulp.task('sass', function () {
     return gulp.src('src/scss/*.scss')
+        .pipe(plugins.scssLint({
+            'config': 'scsslint.yml'
+        }))
         .pipe(plugins.sass({
             outputStyle: 'expanded'
         }))
