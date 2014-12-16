@@ -1,0 +1,14 @@
+{
+  "name": "frontendBuildTools",
+  "version": "1.0.0",
+  "description": "Frontend Build tools for the Modular Magento Boilerplate",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darren Belding",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}
