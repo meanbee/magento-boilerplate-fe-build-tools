@@ -9,6 +9,7 @@
   "author": "Darren Belding",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.8.10"
+    "gulp": "^3.8.10",
+    "gulp-load-plugins": "^0.8.0"
   }
 }
