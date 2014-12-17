@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')();
+    plugins = require('gulp-load-plugins')(),
+    pngquant = require('imagemin-pngquant');
 
 gulp.task('default', function() {
 
@@ -22,4 +23,14 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(gulp.dest('css'));
+});
+
+gulp.task('images', function () {
+    return gulp.src('src/images/**/*')
+        .pipe(plugins.imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('images'));
 });
