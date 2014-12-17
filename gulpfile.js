@@ -69,7 +69,8 @@ gulp.task('images', function () {
 gulp.task('js', function () {
     return gulp.src(PATHS.js.src + '**/*.js')
         .pipe(plugins.jshint('.jshintrc'))
-        .pipe(plugins.jshint.reporter('jshint-stylish'));
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.jscs());
 });
 
 gulp.task('combinemqs', function() {
