@@ -62,3 +62,9 @@ gulp.task('js', function () {
         .pipe(plugins.jshint('.jshintrc'))
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
+
+gulp.task('combinemqs', function() {
+    return gulp.src(PATHS.sass.dest + '**/*.css')
+        .pipe(plugins.combineMq())
+        .pipe(gulp.dest(PATHS.sass.dest));
+});
