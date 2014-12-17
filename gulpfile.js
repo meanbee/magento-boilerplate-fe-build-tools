@@ -13,6 +13,7 @@ gulp.task('watch', function () {
 
 gulp.task('sass', function () {
     return gulp.src('src/scss/**/*.scss')
+        .pipe(plugins.changed('css'))
         .pipe(plugins.scssLint({
             'config': 'scsslint.yml'
         }))
@@ -28,6 +29,7 @@ gulp.task('sass', function () {
 
 gulp.task('images', function () {
     return gulp.src('src/images/**/*')
+        .pipe(plugins.changed('images'))
         .pipe(plugins.size())
         .pipe(plugins.imagemin({
             progressive: true,
