@@ -17,6 +17,12 @@ var PATHS = {
     }
 }
 
+var onError = function (error) {
+    plugins.util.beep();
+    console.log(plugins.util.colors.red(error));
+    this.emit('end');
+};
+
 gulp.task('default', function() {
 
 });
@@ -30,6 +36,9 @@ gulp.task('watch', function () {
 
 gulp.task('sass', function () {
     return gulp.src(PATHS.sass.src + '**/*.scss')
+        .pipe(plugins.plumber({
+            errorHandler: onError
+        }))
         .pipe(plugins.changed('css'))
         .pipe(plugins.scssLint({
             'config': 'scsslint.yml'
