@@ -5,11 +5,15 @@ var gulp = require('gulp'),
 var PATHS = {
     images: {
         src: 'src/images/',
-        dest: 'images'
+        dest: 'images/'
     },
     sass: {
         src: 'src/scss/',
-        dest: 'css'
+        dest: 'css/'
+    },
+    js: {
+        src: 'js/',
+        dest: 'js/'
     }
 }
 
@@ -21,6 +25,7 @@ gulp.task('default', function() {
 gulp.task('watch', function () {
     gulp.watch(PATHS.sass.src + '**/*.scss', ['sass']);
     gulp.watch(PATHS.images.src + '**/*', ['images']);
+    gulp.watch(PATHS.js.src + '**/*', ['js']);
 });
 
 gulp.task('sass', function () {
@@ -50,4 +55,10 @@ gulp.task('images', function () {
         }))
         .pipe(gulp.dest(PATHS.images.dest))
         .pipe(plugins.size());
+});
+
+gulp.task('js', function () {
+    return gulp.src(PATHS.js.src + '**/*.js')
+        .pipe(plugins.jshint('.jshintrc'))
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
