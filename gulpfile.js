@@ -1,8 +1,10 @@
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
-    pngquant = require('imagemin-pngquant');
+    pngquant = require('imagemin-pngquant'),
+    browserSync = require('browser-sync');
 
 var PATHS = {
+    localhost: '',
     images: {
         src: 'src/images/',
         dest: 'images/'
@@ -23,12 +25,7 @@ var onError = function (error) {
     this.emit('end');
 };
 
-gulp.task('default', function() {
-
-});
-
-// Watch our sass and run the appropriate tasks
-gulp.task('watch', function () {
+gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch(PATHS.sass.src + '**/*.scss', ['sass']);
     gulp.watch(PATHS.images.src + '**/*', ['images']);
     gulp.watch(PATHS.js.src + '**/*', ['js']);
@@ -50,7 +47,10 @@ gulp.task('sass', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest(PATHS.sass.dest));
+        .pipe(gulp.dest(PATHS.sass.dest))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 gulp.task('images', function () {
@@ -77,3 +77,9 @@ gulp.task('combinemqs', function() {
         .pipe(plugins.combineMq())
         .pipe(gulp.dest(PATHS.sass.dest));
 });
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: PATHS.localhost
+    });
+})
