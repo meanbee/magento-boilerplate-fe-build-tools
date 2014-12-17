@@ -28,10 +28,12 @@ gulp.task('sass', function () {
 
 gulp.task('images', function () {
     return gulp.src('src/images/**/*')
+        .pipe(plugins.size())
         .pipe(plugins.imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('images'));
+        .pipe(gulp.dest('images'))
+        .pipe(plugins.size());
 });
