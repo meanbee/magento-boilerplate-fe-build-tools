@@ -18,6 +18,7 @@
     "gulp-sass": "^1.2.4",
     "gulp-scss-lint": "^0.1.4",
     "gulp-size": "^1.1.0",
-    "imagemin-pngquant": "^4.0.0"
+    "imagemin-pngquant": "^4.0.0",
+    "jshint-stylish": "^1.0.0"
   }
 }
