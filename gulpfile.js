@@ -6,12 +6,13 @@ gulp.task('default', function() {
 
 });
 
+// Watch our sass and run the appropriate tasks
 gulp.task('watch', function () {
-
+    gulp.watch('src/scss/**/*.scss', ['sass']);
 });
 
 gulp.task('sass', function () {
-    return gulp.src('src/scss/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(plugins.scssLint({
             'config': 'scsslint.yml'
         }))
