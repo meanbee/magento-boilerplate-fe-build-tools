@@ -1,0 +1,203 @@
+html,
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+// HTML5 responsive video //
+video {
+    height: auto !important;
+    width: 100% !important;
+}
+
+// Basic responsive imagery //
+img {
+    height: auto !important;
+    max-width: 100%;
+}
+
+// Interactions should have pointer //
+label,
+a,
+button,
+select,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+h1 {
+    @include rem(font-size, 90px);
+}
+
+h2 {
+    @include rem(font-size, 72px);
+}
+
+h3 {
+    @include rem(font-size, 60px);
+}
+
+h4 {
+    @include rem(font-size, 48px);
+}
+
+h5 {
+    @include rem(font-size, 36px);
+}
+
+h6 {
+    @include rem(font-size, 24px);
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="submit"],
+textarea {
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+select {
+    max-width: 100%;
+}
+
+iframe,
+object,
+embed {
+    max-width: 100%;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:disabled {
+        opacity: .5;
+    }
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    @include rem(margin, 20px 0);
+
+    &:empty {
+        margin: 0;
+    }
+}
+
+blockquote,
+q {
+    quotes: '\201C""\201D""\2018""\2019';
+
+    &:before {
+        content: open-quote;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+    p {
+        display: inline;
+    }
+}
+
+hr {
+    border: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}

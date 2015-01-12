@@ -1,0 +1,14 @@
+// Config
+// ------------------------------------------------
+// Cross browser support settings
+// ------------------------------------------------
+$lt-ie10: false !default;
+$lt-ie9: false !default;
+$media-queries: true;
+
+@import 'config';
+
+// The base contains modules, mixins, layout and animations that are used generally
+// throughout the theme. These are loaded in all application-*.scss files
+// ------------------------------------------------
+@import 'core';

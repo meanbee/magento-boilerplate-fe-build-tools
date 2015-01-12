@@ -1,0 +1,6 @@
+@mixin before-ie-9 {
+    // Only use this content if we're dealing with old IE
+    @if $lt-ie9 {
+        @content;
+    }
+}
