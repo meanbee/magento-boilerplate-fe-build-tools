@@ -1,0 +1,1086 @@
+<!doctype html>
+
+
+
+
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+
+<title>SassDoc - v1.0.0</title>
+<link rel="stylesheet" href="assets/css/main.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width">
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+
+<!-- Thanks to Sass-lang.com for the icons -->
+<link href="http://sass-lang.com/favicon.ico" rel="shortcut icon">
+
+</head>
+<body>
+
+  
+  <aside class="sidebar" role="nav">
+    
+  <div class="sidebar__header">
+  <h1 class="sidebar__title">
+    
+      SassDoc - 1.0.0
+    
+  </h1>
+</div>
+
+<div class="sidebar__body">
+  
+  
+    <button type="button" class="btn-toggle  js-btn-toggle" data-alt="Open all">Close all</button>
+
+    
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="general"><a href="#general">general</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="general-mixin"><a href="#general-mixin">mixins</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="rem" data-type="mixin">
+              <a href="#mixin-rem">rem
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="legacy browsers"><a href="#legacy browsers">legacy browsers</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="legacy browsers-mixin"><a href="#legacy browsers-mixin">mixins</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="before-ie-10" data-type="mixin">
+              <a href="#mixin-before-ie-10">before-ie-10
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="before-ie-9" data-type="mixin">
+              <a href="#mixin-before-ie-9">before-ie-9
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+      <p class="sidebar__item  sidebar__item--heading" data-slug="media queries"><a href="#media queries">media queries</a></p>
+
+      
+      
+        <div>
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading" data-slug="media queries-mixin"><a href="#media queries-mixin">mixins</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="breakpoint" data-type="mixin">
+              <a href="#mixin-breakpoint">breakpoint
+              
+              
+              </a>
+            </li>
+            </ul>
+          
+        
+        </div>
+      
+
+    
+  
+</div>
+
+
+  </aside>
+
+  
+  <article class="main" role="main">
+
+    
+    <header class="header" role="banner">
+  <div class="container">
+  
+    <div class="header__description">
+      <p>Frontend Build tools for the Modular Magento Boilerplate</p>
+
+    </div>
+  
+
+    <div class="sassdoc__searchbar  searchbar">
+       <label for="js-search-input" class="visually-hidden">Search</label>
+       <div class="searchbar__form" id="js-search">
+         <input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search" />
+         <ul class="searchbar__suggestions" id="js-search-suggestions"></ul>
+       </div>
+     </div>
+  </div>
+</header>
+
+
+    <div class="container">
+    
+
+  
+  
+
+    
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="general">general</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="general-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                <section class="main__item  item" id="mixin-rem">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-rem">rem</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin rem($property, $values) { 
+    // Create a couple of empty lists as output buffers.
+    $font-size: $base-font-size;
+    $px-values: ();
+    $rem-values: ();
+
+    // Loop through the $values list
+    @each $value in $values {
+        // For each property value, if it&#39;s in rem or px, derive both rem and
+        // px values for it and add those to the end of the appropriate buffer.
+        // Ensure all pixel values are rounded to the nearest pixel.
+        @if $value == 0 or $value == &#39;0px&#39; {
+            // 0 -- use it without a unit
+            $px-values: join($px-values, 0);
+            $rem-values: join($rem-values, 0);
+        } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+            // px value given - calculate rem value from font-size
+            $new-rem-value: $value / $font-size;
+            $px-values: join($px-values, round($value));
+            $rem-values: join($rem-values, #{$new-rem-value}rem);
+        } @else if type-of($value) == number and not unitless($value) and (unit($value) == &#39;%&#39;) {
+            // % value given - don&#39;t add px or rem
+            $px-values: join($px-values, #{$value});
+            $rem-values: join($rem-values, #{$value});
+        } @else if $value == auto {
+            // auto - don&#39;t add px or rem
+            $px-values: join($px-values, auto);
+            $rem-values: join($rem-values, auto);
+        } @else {
+            // unitless value - use those directly as rem and calculate the px-fallback
+            $px-values: join($px-values, round($value * $font-size));
+            $rem-values: join($rem-values, #{$value}rem);
+        }
+    }
+
+    // output the converted rules
+    @if ($lt-ie9) {
+        #{$property}: $px-values;
+    } @else {
+        #{$property}: $rem-values;
+    }
+ }"
+    data-collapsed="@mixin rem($property, $values) { ... }"><code>@mixin rem($property, $values) { ... }</code></pre>
+
+  
+    <a href="https://github.com/SassDoc/sassdoc/utils/mixins/_rem.scss#L28-L69" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Mixin to output px or rem value depending on application file for a given property.</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$property</code></th>
+          <td data-label="desc"><p>Property name to output</p>
+</td>
+          <td data-label="type">
+          
+            String
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$values</code></th>
+          <td data-label="desc"><p>Values to assign to the property</p>
+</td>
+          <td data-label="type">
+          
+            Length
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>Usage</p>
+</div>
+    
+    <pre class="example__code"><code class="language-scss">.foo {
+  @include rem(font-size, 100px);
+}
+
+.bar {
+  @include rem(font-size, 100px);
+}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.foo {
+  font-size: 6.25rem;
+}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application-ie8.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.bar {
+  font-size: 100px;
+}</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="legacy browsers">legacy browsers</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="legacy browsers-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                <section class="main__item  item" id="mixin-before-ie-10">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-before-ie-10">before-ie-10</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin before-ie-10() { 
+    // Only use this content if we&#39;re dealing with old IE
+    @if $lt-ie10 {
+        @content;
+    }
+ }"
+    data-collapsed="@mixin before-ie-10() { ... }"><code>@mixin before-ie-10() { ... }</code></pre>
+
+  
+    <a href="https://github.com/SassDoc/sassdoc/utils/mixins/_before-ie-10.scss#L26-L31" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Mixin to output content if application file is for ie10 or less</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <p>None.</p>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>Usage</p>
+</div>
+    
+    <pre class="example__code"><code class="language-scss">.foo {
+  background: url(../images/cat-icon.svg);
+  @include before-ie-10 {
+     background: url(../images/ie/cat-icon.png);
+  }
+}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.foo {
+   background: url(../images/cat-icon.svg); }</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application-ie9.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.foo {
+   background: url(../images/cat-icon.svg);
+   background: url(../images/ie/cat-icon.png); }</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+                <section class="main__item  item" id="mixin-before-ie-9">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-before-ie-9">before-ie-9</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin before-ie-9() { 
+    // Only use this content if we&#39;re dealing with old IE
+    @if $lt-ie9 {
+        @content;
+    }
+ }"
+    data-collapsed="@mixin before-ie-9() { ... }"><code>@mixin before-ie-9() { ... }</code></pre>
+
+  
+    <a href="https://github.com/SassDoc/sassdoc/utils/mixins/_before-ie-9.scss#L26-L31" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Mixin to output content if application file is for ie9 or less</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <p>None.</p>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>Usage</p>
+</div>
+    
+    <pre class="example__code"><code class="language-scss">.foo {
+  background: url(../images/cat-icon.svg);
+  @include before-ie-9 {
+     background: url(../images/ie/cat-icon.png);
+  }
+}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.foo {
+   background: url(../images/cat-icon.svg); }</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output within application-ie8.scss</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css">.foo {
+   background: url(../images/cat-icon.svg);
+   background: url(../images/ie/cat-icon.png); }</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+      <section class="main__section">
+        <h1 class="main__heading" id="media queries">media queries</h1>
+
+        
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="media queries-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                <section class="main__item  item" id="mixin-breakpoint">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-breakpoint">breakpoint</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--togglable  language-scss"
+    data-current-state="collapsed"
+    data-expanded="@mixin breakpoint($min, $max) { 
+    $type: type-of($min);
+
+    @if $type == string {
+
+    } @else if $type == number {
+        $query: &#39;all&#39; !default;
+        @if $min != 0 and $max != 0 {
+            $query: &#39;(min-width: #{$min}) and (max-width: #{$max})&#39;;
+        }
+        @else if $min != 0 and $max == 0 {
+            $query: &#39;(min-width: #{$min})&#39;;
+        }
+        @else if $min == 0 and $max != 0 {
+            $query: &#39;(max-width: #{$max})&#39;;
+        }
+        @media #{$query} {
+            @content;
+        }
+    }
+
+ }"
+    data-collapsed="@mixin breakpoint($min, $max) { ... }"><code>@mixin breakpoint($min, $max) { ... }</code></pre>
+
+  
+    <a href="https://github.com/SassDoc/sassdoc/utils/mixins/_breakpoint.scss#L33-L54" class="item__source-link" target="_blank">View source</a>
+  
+</div>
+
+
+
+
+
+
+  
+    
+    
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Mixin to output breakpoint given a variable, sass map reference or value</p>
+</div>
+
+
+  
+    
+    <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$min</code></th>
+          <td data-label="desc"><p>Value to assign to min-width within media query</p>
+</td>
+          <td data-label="type">
+          
+            Length
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$max</code></th>
+          <td data-label="desc"><p>Value to assign to max-width within media query</p>
+</td>
+          <td data-label="type">
+          
+            Length
+          
+          </td>
+          <td data-label="default">
+          
+            &mdash;<span class="visually-hidden"> none</span>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+    
+    
+
+  
+    
+    
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>Usage</p>
+</div>
+    
+    <pre class="example__code"><code class="language-scss">.foo {
+  @include breakpoint(100px) {
+     width: 50px;
+  }
+}
+
+.bar {
+  @include breakpoint(200px, 400px) {
+     width: 50px;
+  }
+}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <div class="example__description"><p>CSS output</p>
+</div>
+    
+    <pre class="example__code"><code class="language-css"> @media (min-width: 100px) {
+   .foo {
+      width: 50px; } }
+
+ @media (min-width: 200px) and (max-width: 400px) {
+   .bar {
+      width: 50px; } }</code></pre>
+  </div>
+  
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+  
+    
+    
+
+  
+
+
+
+</section>
+              
+            </section>
+          
+        
+
+      </section>
+    
+
+  
+
+
+    </div>
+
+    
+    
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      
+        <div class="footer__project-info  project-info">
+          <!-- Name and URL -->
+          
+            <span class="project-info__name">SassDoc</span>
+          
+
+          <!-- Version -->
+          <span class="project-info__version"> - v1.0.0</span>
+
+          <!-- License -->
+          
+          <span class="project-info__license">, under
+            
+              ISC
+            
+            </span>
+          
+        </div>
+      
+
+      
+        <span class="footer__watermark">Built with <a href="https://github.com/SassDoc/sassdoc">SassDoc</a>.</span>
+      
+    </div>
+  </footer>
+
+
+  </article>
+
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="assets/js/main.min.js"></script>
+
+</body>
+</html>

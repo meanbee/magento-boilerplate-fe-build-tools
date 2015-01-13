@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     pngquant = require('imagemin-pngquant'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    sassdoc = require('sassdoc');
 
 var PATHS = {
     localhost: '',
@@ -16,6 +17,9 @@ var PATHS = {
     js: {
         src: 'js/',
         dest: 'js/'
+    },
+    docs: {
+        dest: 'docs/scss/'
     }
 }
 
@@ -83,4 +87,32 @@ gulp.task('browser-sync', function() {
     browserSync({
         proxy: PATHS.localhost
     });
-})
+});
+
+// A custom task to compile through SassDoc API.
+gulp.task('sassdoc', function () {
+    // Tip: you don't need to pass every options,
+    // just override the one you need.
+    var config = {
+        'verbose': true,
+        'display': {
+            'access': ['public', 'private'],
+            'alias': true,
+            'watermark': true
+        },
+        'groups': {
+            'undefined': 'Ungrouped',
+            'foo': 'Foo group',
+            'bar': 'Bar group'
+        },
+        'package': './package.json',
+        'theme': 'default',
+        'basePath': 'https://github.com/SassDoc/sassdoc'
+    };
+
+    // Enable verbose.
+    sassdoc.logger.enabled = config['verbose'];
+
+    // Return a Promise.
+    return sassdoc.documentize(PATHS.sass.src, PATHS.docs.dest, config);
+});

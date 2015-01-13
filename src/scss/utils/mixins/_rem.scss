@@ -1,3 +1,30 @@
+/// Mixin to output px or rem value depending on application file for a given property.
+///
+/// @group General
+/// @access public
+///
+/// @param {String} $property - Property name to output
+/// @param {Length} $values - Values to assign to the property
+///
+/// @example scss - Usage
+/// .foo {
+///   @include rem(font-size, 100px);
+/// }
+///
+/// .bar {
+///   @include rem(font-size, 100px);
+/// }
+///
+/// @example css - CSS output within application.scss
+/// .foo {
+///   font-size: 6.25rem;
+/// }
+///
+/// @example css - CSS output within application-ie8.scss
+/// .bar {
+///   font-size: 100px;
+/// }
+
 @mixin rem($property, $values) {
     // Create a couple of empty lists as output buffers.
     $font-size: $base-font-size;

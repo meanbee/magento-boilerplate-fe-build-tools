@@ -1,3 +1,35 @@
+/// Mixin to output breakpoint given a variable, sass map reference or value
+///
+/// @group Media Queries
+/// @access public
+///
+/// @param {Length} $min - Value to assign to min-width within media query
+/// @param {Length} $max - Value to assign to max-width within media query
+///
+/// @example scss - Usage
+/// .foo {
+///   @include breakpoint(100px) {
+///      width: 50px;
+///   }
+/// }
+///
+/// .bar {
+///   @include breakpoint(200px, 400px) {
+///      width: 50px;
+///   }
+/// }
+///
+/// @example css - CSS output
+///
+///  @media (min-width: 100px) {
+///    .foo {
+///       width: 50px; } }
+///
+///  @media (min-width: 200px) and (max-width: 400px) {
+///    .bar {
+///       width: 50px; } }
+///
+
 @mixin breakpoint($min: 0, $max: 0) {
     $type: type-of($min);
 

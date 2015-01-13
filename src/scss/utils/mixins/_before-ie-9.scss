@@ -1,3 +1,28 @@
+/// Mixin to output content if application file is for ie9 or less
+///
+/// @group Legacy Browsers
+/// @access public
+///
+/// @example scss - Usage
+/// .foo {
+///   background: url(../images/cat-icon.svg);
+///   @include before-ie-9 {
+///      background: url(../images/ie/cat-icon.png);
+///   }
+/// }
+///
+/// @example css - CSS output within application.scss
+///
+/// .foo {
+///    background: url(../images/cat-icon.svg); }
+///
+/// @example css - CSS output within application-ie8.scss
+///
+/// .foo {
+///    background: url(../images/cat-icon.svg);
+///    background: url(../images/ie/cat-icon.png); }
+///
+
 @mixin before-ie-9 {
     // Only use this content if we're dealing with old IE
     @if $lt-ie9 {
