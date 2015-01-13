@@ -1,3 +1,38 @@
+/**
+ * CONTENTS
+ *
+ * UTILITIES
+ * Functions............Useful functions.
+ * Mixins
+ *     Breakpoint.......Media query mixin.
+ *     Rem..............Conditionally output px or rem.
+ *     Before IE 10.....Conditionally output content for pre IE10.
+ *     Before IE 9......Conditionally output content for pre IE9.
+ *
+ * Placeholders.........Sass placeholders.
+ * Animations...........Globally available animations.
+ *
+ * BASE
+ * Fonts................Font face imports.
+ * Elements.............Base element styling only.
+ *
+ * LAYOUTS
+ *
+ * PAGES
+ * Category.............Category page specific adjustments
+ * Product Listing......Product listing page specific adjustments
+ * Product..............Product page specific adjustments
+ * Cart.................Cart page specific adjustments
+ * Checkout.............Checkout page specific adjustments
+ * Search results.......Search results page specific adjustments
+ * Account..............Account page specific adjustments
+ *
+ * COMPONENTS
+ *
+ * STATES
+ * State................Globally available states.
+ */
+
 // Functions
 // ------------------------------------------------
 
@@ -14,22 +49,27 @@
 // Animations
 // ------------------------------------------------
 
-// Reset
-// ------------------------------------------------
-
-// Fonts
-// ------------------------------------------------
-@import 'base/fonts';
-
 // Base
 // ------------------------------------------------
+@import 'base/fonts';
 @import 'base/elements';
 
-// Layout
+// Layouts
 // ------------------------------------------------
+
+// Pages
+// ------------------------------------------------
+@import 'pages/category';
+@import 'pages/product-listing';
+@import 'pages/product';
+@import 'pages/cart';
+@import 'pages/checkout';
+@import 'pages/search-results';
+@import 'pages/account';
 
 // Components
 // ------------------------------------------------
 
 // Global state classes
 // ------------------------------------------------
+@import "state";

@@ -1,4 +1,3 @@
-// Config
 // ------------------------------------------------
 // Cross browser support settings
 // ------------------------------------------------
@@ -6,9 +5,11 @@ $lt-ie10: true !default;
 $lt-ie9: false !default;
 $media-queries: true;
 
+// Globally available variables and sass maps
 @import 'config';
 
-// The base contains modules, mixins, layout and animations that are used generally
-// throughout the theme. These are loaded in all application-*.scss files
+// The core contains everything except variables and sass maps used
+// throughout the theme. See the core partials table of contents for
+// more information.
 // ------------------------------------------------
 @import 'core';
