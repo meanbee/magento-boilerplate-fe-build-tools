@@ -16,13 +16,13 @@ video {
 
 // HTML5 responsive video //
 video {
-    height: auto !important;
-    width: 100% !important;
+    height: auto;
+    width: 100%;
 }
 
 // Basic responsive imagery //
 img {
-    height: auto !important;
+    height: auto;
     max-width: 100%;
 }
 
@@ -35,7 +35,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-
 h1,
 h2,
 h3,
@@ -46,27 +45,27 @@ h6 {
 }
 
 h1 {
-    @include rem(font-size, 90px);
+    @include rem(font-size, map-get($typography, 'heading-one'));
 }
 
 h2 {
-    @include rem(font-size, 72px);
+    @include rem(font-size, map-get($typography, 'heading-two'));
 }
 
 h3 {
-    @include rem(font-size, 60px);
+    @include rem(font-size, map-get($typography, 'heading-three'));
 }
 
 h4 {
-    @include rem(font-size, 48px);
+    @include rem(font-size, map-get($typography, 'heading-four'));
 }
 
 h5 {
-    @include rem(font-size, 36px);
+    @include rem(font-size, map-get($typography, 'heading-five'));
 }
 
 h6 {
-    @include rem(font-size, 24px);
+    @include rem(font-size, map-get($typography, 'heading-six'));
 }
 
 a {
@@ -163,7 +162,7 @@ ol {
 }
 
 p {
-    @include rem(margin, 20px 0);
+    @include rem(margin, $vertical-spacing-unit 0);
 
     &:empty {
         margin: 0;

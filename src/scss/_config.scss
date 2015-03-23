@@ -1,6 +1,6 @@
 // Vertical rhythm settings
 // ------------------------------------------------
-$base-font-size: 16px;
+$vertical-spacing-unit: 20px;
 
 // Mixin vars
 // ------------------------------------------------
@@ -16,3 +16,17 @@ $breakpoints: (
 $brand-color: (
 
 );
+
+// Main Typographic Heading sizes
+// ------------------------------------------------
+$typography: (
+    'base-font-size': 16px,
+    'heading-one': 90px,
+    'heading-two': 72px,
+    'heading-three': 60px,
+    'heading-four': 48px,
+    'heading-five': 36px,
+    'heading-six': 24px
+);
+
+$base-font-size: map-get($typography, 'base-font-size');
