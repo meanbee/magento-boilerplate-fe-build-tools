@@ -30,25 +30,40 @@
 ///       width: 50px; } }
 ///
 
-@mixin breakpoint($min: 0, $max: 0) {
-    $type: type-of($min);
-
-    @if $type == string {
-
-    } @else if $type == number {
-        $query: 'all' !default;
-        @if $min != 0 and $max != 0 {
-            $query: '(min-width: #{$min}) and (max-width: #{$max})';
-        }
-        @else if $min != 0 and $max == 0 {
-            $query: '(min-width: #{$min})';
-        }
-        @else if $min == 0 and $max != 0 {
-            $query: '(max-width: #{$max})';
-        }
-        @media #{$query} {
-            @content;
+@function parse-breakpoint-string($value) {
+    @if $breakpoints {
+        @if map-get($breakpoints, $value) {
+            @return map-get($breakpoints, $value);
+        } @else {
+            @return 0;
         }
     }
 
+    @return 0;
+}
+
+@mixin breakpoint($min: 0, $max: 0) {
+    $type-min: type-of($min);
+    $type-max: type-of($max);
+
+    @if $type-min == string {
+        $min: parse-breakpoint-string($min);
+    }
+
+    @if $type-max == string {
+        $max: parse-breakpoint-string($max);
+    }
+
+    $query: 'all' !default;
+    @if $min != 0 and $max != 0 {
+        $query: '(min-width: #{$min}) and (max-width: #{$max})';
+    } @else if $min != 0 and $max == 0 {
+        $query: '(min-width: #{$min})';
+    } @else if $min == 0 and $max != 0 {
+        $query: '(max-width: #{$max})';
+    }
+
+    @media #{$query} {
+        @content;
+    }
 }
