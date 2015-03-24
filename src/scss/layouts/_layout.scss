@@ -1,0 +1,64 @@
+//
+// Reusable column layout structures in Magento
+// using the Bourbon neat framework
+//
+
+
+// Single column layout by default given that elements are block level
+// Change layout for breakpoints
+.col2-set {
+    @include row();
+
+    @include breakpoint('small') {
+        .col-1,
+        .col-2 {
+            @include span-columns(6 of 12);
+        }
+    }
+
+    .col-1 {
+        @include rem(margin-bottom, $vertical-spacing-unit);
+    }
+}
+
+.col3-set {
+    @include row();
+
+    @include breakpoint('medium') {
+        .col-1,
+        .col-2,
+        .col-3 {
+            @include span-columns(4 of 12);
+        }
+    }
+}
+
+.col4-set {
+    @include row();
+
+    @include breakpoint('medium') {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4 {
+            @include span-columns(6 of 12);
+        }
+
+        .col-3 {
+            clear: both;
+        }
+    }
+
+    @include breakpoint('large') {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4 {
+            @include span-columns(3 of 12);
+        }
+
+        .col-3 {
+            clear: none;
+        }
+    }
+}

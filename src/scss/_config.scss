@@ -2,6 +2,13 @@
 // ------------------------------------------------
 $vertical-spacing-unit: 20;
 
+// Grid settings applied for the bourbon neat library
+// ------------------------------------------------
+$column: 70px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: 1200px;
+
 // Mixin vars
 // ------------------------------------------------
 
@@ -32,3 +39,4 @@ $breakpoints: (
     'medium': (770 / $base-font-size) * 1rem,
     'large': (1200 / $base-font-size) * 1rem
 );
+

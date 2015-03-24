@@ -4,6 +4,8 @@
  // UTILITIES
  // Functions............Useful functions.
  // Mixins
+ //     Bourbon..........Bourbon Mixin library - See http://bourbon.io/docs/
+ //     Neat.............Neat Mixin library - See http://thoughtbot.github.io/neat-docs/latest/
  //     Breakpoint.......Media query mixin.
  //     Rem..............Conditionally output px or rem.
  //     Before IE 10.....Conditionally output content for pre IE10.
@@ -38,6 +40,8 @@
 
 // Mixins
 // ------------------------------------------------
+@import '../components/bourbon/app/assets/stylesheets/bourbon';
+@import '../components/neat/app/assets/stylesheets/neat';
 @import 'utils/mixins/before-ie-10';
 @import 'utils/mixins/before-ie-9';
 @import 'utils/mixins/breakpoint';
@@ -56,6 +60,7 @@
 
 // Layouts
 // ------------------------------------------------
+@import 'layouts/layout';
 
 // Pages
 // ------------------------------------------------
