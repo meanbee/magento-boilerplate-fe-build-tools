@@ -16,6 +16,9 @@
  //
  // Animations...........Globally available animations.
  //
+ // RESET
+ // Generic Normalize....Inuits normalize css loaded via bower.
+ //
  // BASE
  // Fonts................Font face imports.
  // Elements.............Base element styling only.
@@ -56,6 +59,10 @@
 
 // Animations
 // ------------------------------------------------
+
+// Reset
+// ------------------------------------------------
+@import '../components/inuit-normalize/generic.normalize';
 
 // Base
 // ------------------------------------------------
