@@ -12,6 +12,8 @@
  //     Before IE 9......Conditionally output content for pre IE9.
  //
  // Placeholders.........Sass placeholders.
+ //     Accessible Hide..Hide content in CSS but allow screen reader access
+ //
  // Animations...........Globally available animations.
  //
  // BASE
@@ -49,6 +51,7 @@
 
 // Placeholders
 // ------------------------------------------------
+@import 'utils/placeholders/accessible-hide';
 
 // Animations
 // ------------------------------------------------
