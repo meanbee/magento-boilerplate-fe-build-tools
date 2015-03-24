@@ -1,0 +1,21 @@
+{
+  "name": "frontendBuildTools",
+  "version": "0.0.0",
+  "homepage": "https://github.com/meanbee/magento-boilerplate-fe-build-tools",
+  "authors": [
+    "Darren Belding <darren.belding@meanbee.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "neat": "~1.7.2",
+    "bourbon": "~4.2.1"
+  }
+}
