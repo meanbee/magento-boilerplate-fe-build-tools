@@ -51,6 +51,7 @@ gulp.task('sass', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
+        .pipe(plugins.combineMq())
         .pipe(gulp.dest(PATHS.sass.dest))
         .pipe(browserSync.reload({
             stream: true
