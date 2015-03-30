@@ -42,6 +42,7 @@ h4,
 h5,
 h6 {
     font-weight: normal;
+    margin: $heading-spacing-unit;
 }
 
 h1 {
@@ -72,18 +73,9 @@ a {
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
 
-    &:focus,
-    &:hover {
-        text-decoration: underline;
-    }
-
     &:hover,
     &:active {
         outline: 0;
-    }
-
-    &:active {
-        text-decoration: underline;
     }
 }
 
