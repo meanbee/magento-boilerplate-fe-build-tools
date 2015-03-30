@@ -15,10 +15,6 @@
             @include span-columns(6 of 12);
         }
     }
-
-    .col-1 {
-        @include rem(margin-bottom, $vertical-spacing-unit);
-    }
 }
 
 .col3-set {
@@ -36,12 +32,17 @@
 .col4-set {
     @include row();
 
-    @include breakpoint('medium') {
+    @include breakpoint('small') {
         .col-1,
         .col-2,
         .col-3,
         .col-4 {
             @include span-columns(6 of 12);
+        }
+
+        .col-2,
+        .col-4 {
+            margin-right: 0;
         }
 
         .col-3 {
