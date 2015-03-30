@@ -1,3 +1,8 @@
+//
+// To hide content from display but allow screen readers access
+// to the elements content.
+// This placeholder can be used using @extend %accessible-hide
+//
 %accessible-hide {
     border: 0;
     clip: rect(0 0 0 0);
