@@ -112,8 +112,10 @@ gulp.task('images', function() {
 
 gulp.task('js', function () {
     return gulp.src(PATHS.js.src + '**/*.js')
-        .pipe(plugins.jshint('.jshintrc'))
-        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.eslint({
+            configFile: '.eslintrc'
+        }))
+        .pipe(plugins.eslint.format())
         .pipe(plugins.jscs())
         .pipe(gulp.dest(PATHS.js.dest));
 });
