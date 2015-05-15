@@ -126,6 +126,7 @@ gulp.task('combinemqs', function() {
 
 gulp.task('browser-sync', function() {
     browserSync({
+        server: true,
         proxy: PATHS.localhost
     });
 });
