@@ -17,6 +17,7 @@
   "devDependencies": {
     "neat": "~1.7.2",
     "bourbon": "~4.2.1",
-    "inuit-normalize": "~3.0.2"
+    "inuit-normalize": "~3.0.2",
+    "fontfaceobserver": "~1.4.9"
   }
 }
