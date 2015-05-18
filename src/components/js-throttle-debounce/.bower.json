@@ -1,0 +1,22 @@
+{
+  "name": "js-throttle-debounce",
+  "version": "0.1.1",
+  "main": [
+    "build/js-throttle-debounce.min.js"
+  ],
+  "ignore": [
+    "samples",
+    "tests"
+  ],
+  "homepage": "https://github.com/emn178/js-throttle-debounce",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.1",
+    "commit": "cc4c53254ba1e4570ba4893c8a42efa0c570e293"
+  },
+  "_source": "git://github.com/emn178/js-throttle-debounce.git",
+  "_target": "~0.1.1",
+  "_originalSource": "js-throttle-debounce",
+  "_direct": true
+}
