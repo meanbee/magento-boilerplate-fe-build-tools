@@ -68,7 +68,6 @@ gulp.task('sass', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(plugins.combineMq())
         .pipe(gulp.dest(PATHS.sass.dest))
         .pipe(browserSync.reload({
             stream: true
@@ -118,12 +117,6 @@ gulp.task('js', function () {
         .pipe(plugins.eslint.format())
         .pipe(plugins.jscs())
         .pipe(gulp.dest(PATHS.js.dest));
-});
-
-gulp.task('combinemqs', function() {
-    return gulp.src(PATHS.sass.dest + '**/*.css')
-        .pipe(plugins.combineMq())
-        .pipe(gulp.dest(PATHS.sass.dest));
 });
 
 gulp.task('browser-sync', function() {
