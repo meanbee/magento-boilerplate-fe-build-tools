@@ -147,9 +147,7 @@ gulp.task('sassdoc', function () {
         'basePath': 'https://github.com/SassDoc/sassdoc'
     };
 
-    // Enable verbose.
-    sassdoc.logger.enabled = config['verbose'];
-
     // Return a Promise.
-    return sassdoc.documentize(PATHS.sass.src, PATHS.docs.dest, config);
+    return gulp.src(PATHS.sass.src + '**/*.scss')
+        .pipe(sassdoc(config));
 });
