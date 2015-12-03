@@ -68,7 +68,6 @@ gulp.task('sass', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(plugins.combineMq())
         .pipe(gulp.dest(PATHS.sass.dest))
         .pipe(browserSync.reload({
             stream: true
@@ -120,12 +119,6 @@ gulp.task('js', function () {
         .pipe(gulp.dest(PATHS.js.dest));
 });
 
-gulp.task('combinemqs', function() {
-    return gulp.src(PATHS.sass.dest + '**/*.css')
-        .pipe(plugins.combineMq())
-        .pipe(gulp.dest(PATHS.sass.dest));
-});
-
 gulp.task('browser-sync', function() {
     browserSync({
         server: true,
@@ -154,9 +147,7 @@ gulp.task('sassdoc', function () {
         'basePath': 'https://github.com/SassDoc/sassdoc'
     };
 
-    // Enable verbose.
-    sassdoc.logger.enabled = config['verbose'];
-
     // Return a Promise.
-    return sassdoc.documentize(PATHS.sass.src, PATHS.docs.dest, config);
+    return gulp.src(PATHS.sass.src + '**/*.scss')
+        .pipe(sassdoc(config));
 });
