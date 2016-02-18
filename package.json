@@ -18,14 +18,16 @@
     "gulp-jscs": "^3.0.2",
     "gulp-load-plugins": "^1.1.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.1.0",
-    "gulp-scss-lint": "^0.3.8",
     "gulp-size": "^2.0.0",
     "gulp-util": "^3.0.1",
     "gulp.spritesmith": "^6.0.0",
     "imagemin-pngquant": "^4.0.0",
     "merge-stream": "^1.0.0",
+    "postcss-scss": "^0.1.5",
     "run-sequence": "^1.0.2",
-    "sassdoc": "^2.1.16"
+    "sassdoc": "^2.1.16",
+    "stylelint": "^4.3.5"
   }
 }

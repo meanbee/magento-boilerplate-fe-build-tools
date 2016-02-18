@@ -6,7 +6,9 @@ var gulp = require('gulp'),
     fs = require('fs'),
     path = require('path'),
     merge = require('merge-stream'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    stylelint = require("stylelint"),
+    scssParser = require('postcss-scss');
 
 var PATHS = {
     localhost: '',
@@ -49,10 +51,12 @@ gulp.task('default', ['sass', 'sasslint', 'browser-sync', 'images'], function ()
 });
 
 gulp.task('sasslint', function() {
+    var processors = [
+        stylelint()
+    ];
+
     gulp.src([PATHS.sass.src + '**/*.scss', '!' + PATHS.sass.src + 'utils/mixins/spritesmith/**/*.scss'])
-        .pipe(plugins.scssLint({
-            'config': 'scsslint.yml'
-        }));
+        .pipe(plugins.postcss(processors, {syntax: scssParser}));
 });
 
 gulp.task('sass', function () {
