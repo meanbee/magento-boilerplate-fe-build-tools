@@ -75,9 +75,9 @@ In addition to this, the following watch events are set:
 
 ### sasslint
 
-This task performs [scss linting](https://github.com/brigade/scss-lint) on sass files based inside ```src/scss/```
+This task performs [scss linting](https://github.com/stylelint/stylelint) on sass files based inside ```src/scss/```
 
-Please see scsslint.yml for information on linting rules.
+Please see .stylelintrc for information on linting rules.
 
 
 **Exclusions**
