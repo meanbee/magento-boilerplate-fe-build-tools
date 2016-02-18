@@ -1,18 +1,25 @@
-rules:
-    indent: 2
-    brace-style: [2, "1tbs"]
-    comma-style: [2, "last"]
-    default-case: 2
-    func-style: [2, "declaration"]
-    guard-for-in: 2
-    no-floating-decimal: 2
-    no-nested-ternary: 2
-    no-undefined: 2
-    quotes: [2, 'single']
-    radix: 2
-    space-after-keywords: [2, "always"]
-    space-before-blocks: 2
-    spaced-comment: [2, "always", { exceptions: ["-"]}]
-    strict: [2, "global"]
-    valid-jsdoc: [2, { prefer: { "return": "returns"}}]
-    wrap-iife: [2, "inside"]
+{
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+
+    "rules": {
+        "indent": 2,
+        "brace-style": [2, "1tbs"],
+        "comma-style": [2, "last"],
+        "default-case": 2,
+        "func-style": [2, "declaration"],
+        "guard-for-in": 2,
+        "no-floating-decimal": 2,
+        "no-nested-ternary": 2,
+        "no-undefined": 2,
+        "quotes": [2, 'single'],
+        "radix": 2,
+        "keyword-spacing": [2],
+        "space-before-blocks": 2,
+        "spaced-comment": [2, "always", { exceptions: ["-"]}],
+        "strict": [2, "global"],
+        "valid-jsdoc": [2, { prefer: { "return": "returns"}}],
+        "wrap-iife": [2, "inside"]
+    }
+}

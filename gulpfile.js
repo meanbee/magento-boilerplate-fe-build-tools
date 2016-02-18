@@ -115,11 +115,14 @@ gulp.task('images', function() {
 
 gulp.task('js', function () {
     return gulp.src(PATHS.js.src + '**/*.js')
+        .pipe(plugins.sourcemaps.init())
         .pipe(plugins.eslint({
             configFile: '.eslintrc'
         }))
         .pipe(plugins.eslint.format())
         .pipe(plugins.jscs())
+        .pipe(plugins.babel())
+        .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest(PATHS.js.dest));
 });
 
